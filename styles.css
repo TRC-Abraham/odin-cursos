@@ -1,0 +1,80 @@
+*{
+    font-family: sans-serif;
+}
+
+li {
+    list-style: none;
+    font-size: 16px;    
+}
+.list-recetas li {
+    padding: 5px 0px 5px 0px;
+}
+.list-recetas li a{
+    text-decoration-line: none;
+    color: black;
+}
+div.externo {
+    background-color: red;
+}
+ul.selectores li {
+    padding: 5px 0 5px 0;
+    margin: 10px 0 10px 0;
+}
+/*Selector para elementos impares (2n+1)*/
+ul.selectores li:nth-child(odd){
+    background-color: lightcoral;
+    font-family: Verdana, "DejaVu Sans", sans-serif;
+}
+/*Even (2n) es para elementos pares*/
+ul.selectores li:nth-child(2) {
+    color: blue;
+    font-size: 36px;
+}
+ul.selectores li:nth-child(3) {
+    font-size: 24px;
+}
+ul.selectores li:nth-child(4) {
+    background-color: lightgreen;
+    font-weight: bold;
+}
+/*Agrupando selectores*/
+.botones-list {
+    display: inline-flex;
+}
+.boton1, .boton2 {
+    font-size: 28px;
+    font-family: Helvetica, "Time New Roman", sans-serif;
+}
+.boton1 {
+    background-color: black;
+    color: white;
+}
+.boton2 {
+    background-color: yellow;
+}
+/*Encadenando selectores*/
+.botones-list2 {
+    display: inline-flex;
+}
+.botones{
+    font-size: 28px;
+    font-family: Helvetica, "Time New Roman", sans-serif;
+}
+.botones.boton3 {
+    background-color: black;
+    color: white;
+}
+.botones.boton4 {
+    background-color: yellow;
+}
+/*Combinadores de descendientes*/
+div p {
+    background-color: yellow;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+}
+p {
+    font-family: sans-serif;
+}
