@@ -1,0 +1,166 @@
+* {
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+}
+
+.left {
+    background-image: url(images/code.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 35vw;
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.head-cont {
+    display: flex;
+    position: relative; 
+    top: 16%;
+    justify-content: center;
+    background-color: rgba(183, 190, 255, 0.75);
+    height: fit-content;
+    width: 100%;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.head-c {
+color: #fdd572;
+}
+
+.head-d {
+    color: #08c9a0;
+}
+
+.head-s {
+    color: #e397ef;
+}
+
+.right {
+    display: flex;
+    flex-wrap: wrap;
+    width: 65vw;
+    align-items: center;
+    background-color: rgb(15, 24, 50, 1);
+    font-size: 24px;
+}
+
+.user-info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    border: none;
+    box-shadow: 12px 0px 25px -8px rgb(20 180 219);
+}
+
+input {
+    color: black;
+    border-radius: 5px;
+}
+
+.input {
+    display: flex;
+    flex-flow: column wrap;
+    width: 40%;
+    margin: 0 50px 25px 0;
+    font-size: 18px;
+    color: #7cd6ee;
+}
+
+input:valid {
+    border: 1px solid lightgreen;
+}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+.presentation, .title-form, .buttom-submit, .log-in {
+    margin-left: 50px;
+}
+
+.buttom-submit {
+    margin-top: 25px;
+    background-color: transparent;
+    border: 2px solid #7cd6ee;
+    border-radius: 10px;
+    padding: 15px 50px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.buttom-submit:hover {
+    background-color: #7cd6ee;
+    color: black;
+}
+
+
+
+@media (max-width: 922px) {
+    .content {
+        flex-flow: column;
+        height: auto;
+        text-align: center;
+    }
+    .head-cont{
+        position: static;
+        height: auto;
+    }
+    .left {
+        width: auto;
+        height: 10vh;
+        background-size: 100vw;
+    }
+    .logo {
+        width: 25px;
+        height: 25px;
+    }
+    .right {
+        width: auto;
+        justify-content: center;
+        padding-top: 20px;
+    }
+    .user-info {
+        justify-content: space-around;
+        padding: 20px;
+    }
+    .head, .title-form {
+        font-size: 26px;
+    }
+    
+    .title-form, .presentation {
+        padding: 20px;
+    }
+    .presentation {
+        font-size: 20px;
+    }
+    .form {
+        padding: 20px 0;
+    }
+    .input {
+        margin: 10px 0;
+    }
+    .presentation, .title-form, .buttom-submit, .log-in {
+        margin-left: 0;
+    }
+    
+}

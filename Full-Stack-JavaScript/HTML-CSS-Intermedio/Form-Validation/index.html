@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Form Validation</title>
+    </head>
+    <body>
+        <form class="padd-bottom" action="#">
+            <label for="choose">
+                ¿Que prefieres una banana o una cereza?
+            </label>
+            <input class="invalid" name="i-like" id="choose" required pattern="[Bb]anana|[Cc]herry">
+            <button>Enviar</button>
+        </form>
+
+        <form>
+            <div>
+              <label for="choose">Would you prefer a banana or a cherry?</label>
+              <input
+                type="text"
+                id="choose"
+                name="i-like"
+                required
+                minlength="6"
+                maxlength="6" />
+            </div>
+            <div>
+              <label for="number">How many would you like?</label>
+              <input type="number" id="number" name="amount" value="1" min="1" max="10" />
+            </div>
+            <div>
+              <button>Submit</button>
+            </div>
+        </form>
+        <form class="form-block padd-bottom" action="#">
+            <fieldset>
+                <legend>
+                    ¿Cuentas con la licencia de algún driver?
+                    <span aria-label="required">*</span>
+                </legend>
+                <input type="radio" name="driver" id="r1" value="yes" required>
+                <label for="r1">Si</label>
+                <input type="radio" name="driver" id="r2" value="no" required>
+                <label for="r2">No</label>
+                <label for="n1" class="block">
+                    ¿Que edad tienes?
+                </label>
+                <input type="number" name="edad" id="n1" min="12" max="120" step="1" pattern="\d+">
+                <label for="t1" class="block">
+                    ¿Cual es tu fruta favorita?
+                </label>
+                <input type="text" name="fruta" id="t1" list="l1" required pattern="[Aa]pple|[Bb]anana|[Cc]herry|[Ll]emon|[Oo]range|[Ss]trawberry">
+                <datalist id="l1">
+                    <option>Apple</option>
+                    <option>Banana</option>
+                    <option>Cherry</option>
+                    <option>Lemon</option>
+                    <option>Orange</option>
+                    <option>Strawberry</option>
+                </datalist>
+                <label for="t2" class="block">
+                    Escribe tu dirección de correo electrónico:
+                </label>
+                <input type="email" name="email" id="t2">
+                <label for="t3" class="block">
+                    Escribe un pequeño texto
+                </label>
+                <textarea name="msg" id="t3" maxlength="140" rows="5"></textarea>
+                <button class="block" type="submit">Enviar</button>
+            </fieldset>
+        </form>
+        <form class="form-block padd-bottom" >
+            <fieldset>
+                <label>
+                    Nombre
+                    <input type="text" name="name">
+                </label>
+                <label for="id-name">Nombre</label>
+                <input type="text" name="name" id="id-name">
+                <input type="text" name="name" id="id-name-2" placeholder="Nombre">
+                <label for="credit-card-in">Tarjeta de crédito</label>
+                <input type="text" name="credit-card" id="credit-card-in" inputmode="numeric" autocomplete="cc-number" minlength="8" maxlength="10" required>
+                <button class="block" type="submit">Enviar</button>
+                <!-- Para que una ayuda visual para una validation de patrones, se debe de agregar el atributo pattern="regular-expression" junto al atributo title="mensaje a mostrar" -->
+
+               <!--  Si se busca saltar la validación del lado del cliente se debe de ingresar el atributo "novalidate" en la etiqueta form o el atributo "formnovalidate" en la etiqueta buttom del formulario. -->
+            </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+  form, form div, .form-block {
+    margin: 15px 0 15px 0;
+  }
+  
+  form {
+    border-bottom: 2px solid gray;
+    font-family: sans-serif;
+    max-width: 320px;
+  }
+
+  .padd-bottom {
+    padding-bottom: 15px;
+  }
+
+  #n1, .block {
+    display: block;
+    margin: 10px 0 10px 0;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"], textarea, fieldset {
+    width: 100%;
+    border: 1px solid #333;
+    box-sizing: border-box;
+  }
+
+  input:valid {
+    border: 2px solid black;
+  }
+
+  input:invalid {
+    border: 2px solid red;
+    box-shadow: 0 0 5px 1px red;
+  }
+
+  .invalid, #choose {
+    background-image: linear-gradient(to right, pink, lightgreen);
+  }
+
+  input:focus:invalid {
+    box-shadow: none;
+  }
+
+  input[type="text"]::placeholder {
+    color: blue;
+  }
