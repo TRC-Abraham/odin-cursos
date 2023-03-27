@@ -8,13 +8,13 @@ body, html {
     padding: 16px;
     box-sizing: border-box;
     display: grid;
-    grid-template: [top]100px [header]100px [nav]5fr [article]100px [bottom]/ [start]250px [middle]3fr [end];
+    grid-template: [top]100px [header]100px [nav]500px [article]100px [bottom]/ [start]250px [middle]1250px [end];
     grid-template-areas:
         "top top"
         "sidebar nav"
         "sidebar article"
         "footer footer";
-    gap: 15px;
+    gap: 10px;
   }
   
   .container div {

@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+        "head head"
+        "side nav"
+        "side articles"
+        "footer footer";
+        gap: 4px;
+  }
+  
+  .container div {
+    padding: 15px;
+    font-size: 32px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .header {
+    background-color: #393f4d;
+    grid-area: head;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu, .logo {
+    padding: 0;
+    height: fit-content;
+  }
+  
+  .menu ul,
+  .menu li, .nav ul {
+    font-size: 16px;
+    list-style: none;
+  }
+  
+  .menu ul {
+    display: grid;
+    grid-template: 50px / repeat(4, 1fr);
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .sidebar {
+    background-color: #FF7755;
+    grid-area: side;
+    display: grid;
+    grid-template: repeat(4, 1fr) / 1fr;
+    gap: 50px;
+  }
+
+  .side-content, .photo {
+    display: grid;
+    align-items: center;
+  }
+  
+  .sidebar .photo {
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 10px;
+    align-self: stretch;
+  }
+  
+  
+  .sidebar .side-content {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+    align-self: stretch;
+  }
+  
+  .nav {
+    background-color: #FF7755;
+    grid-area: nav;
+  }
+  
+  .nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav ul li {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  .article {
+    background-color: #bccbde;
+    grid-area: articles;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .article p {
+    font-size: 18px;
+    font-family: sans-serif;
+    color: white;
+    text-align: left;
+  }
+  
+  .article .card {
+    background-color: #FFFFFF;
+    color: black;
+    text-align: center;
+    height: 200px;
+  }
+  
+  .card p {
+    color: black;
+    font-weight: normal;
+    font-size: 14px;
+  }
+  
+  .card .title {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .footer {
+    background-color: #393f4d;
+    grid-area: footer;
+  }
+  
+  .footer p {
+    font-size: 13px;
+    font-weight: normal;  
+  }

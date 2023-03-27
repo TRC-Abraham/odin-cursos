@@ -1,0 +1,52 @@
+.container {
+    display: grid;
+    /* grid-template: 150px 150px / 150px 150px 150px 150px 150px; */
+    align-items: center;
+    justify-items: center;
+    resize: both;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* Es posible usar distintas funciones para dimensionar nuestra grid, tales como:
+    grid-template-rows: repeat(2, min(200px, 50%));
+    grid-template-columns: repeat(5, max(120px, 15%));
+
+    grid-template-rows: repeat(2, clamp(200px, 50%, 300px));
+    grid-template-columns: repeat(5, clamp(120px, 15%, 200px));
+
+    clamp(valor-mínimo, valor-ideal, valor-max)
+*/
+
+.grid-container {
+    resize: both;
+    overflow: auto;
+    display: grid;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid grey;
+    background-color: skyblue;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) conservara en uso el tamaño mínimo
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) conservara en uso el tamaño max
+  */
+  
+  .grid-item {
+    background-color: #444;
+    text-align: center;
+    color: #ddd;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    padding: 12px;
+  }
+  
+  p {
+    margin: 12px auto 24px;
+  }
+  
+  img {
+    height: 60px;
+  }
