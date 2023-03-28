@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 * {
     list-style: none;
     font-family: sans-serif;
@@ -5,10 +9,10 @@
 
 .container {
     display: grid;
-    grid-template-columns: [start]1fr [middle]4fr [end];
+    grid-template-columns: 1fr [start]1fr [middle]4fr [end]1fr;
     grid-template-areas:
-        "side header"
-        "side main";
+        ". side header ."
+        ". side main .";
 }
 
 #header {
@@ -189,7 +193,7 @@
 .projects {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50px 200px 200px 200px;
+    grid-template-rows: 50px 1fr 1fr 1fr;
     grid-template-areas:
         "title title"
         "articles articles"
@@ -272,4 +276,9 @@
 .trending-item > a {
     text-decoration: none;
     color: black;
+}
+
+.box-shadow {
+    box-shadow: 0px 5px 5px -2px gray;
+    z-index: 100;
 }
