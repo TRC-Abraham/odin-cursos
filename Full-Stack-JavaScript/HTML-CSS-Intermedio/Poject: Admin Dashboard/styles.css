@@ -135,7 +135,7 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    justify-content: unset;
+    justify-content: center;
     padding: 15px 35px;
 }
 
