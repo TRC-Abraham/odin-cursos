@@ -441,4 +441,35 @@ let message = (login == 'Employee') ? 'Hello' :
     (login == '') ? 'No login' :
     '';
 
-    
+// Creando una función 
+
+// 1- Para crear o declarar una función se utiliza:
+function [nombre](argumento-1, argumento-2, ...) {
+    // Código a ejecutar
+};
+
+// Cabe resaltar que no todas las funciones admiten argumentos, como en el caso de muchas API
+// En otras, estos son mas bien opcionales.
+// Y nosotros podemos crear funciones que admitan argumentos, si, los declaramos al momento de crear nuestra función. 
+
+function hello(name = 'Chris', lastName = 'Doe') {
+  console.log(`Hello ${name} ` + `${lastName}!`);
+}
+
+// Si ejecutamos la anterior función tal como esta, esta arrojara: Hello Chris Doe!
+
+// Incluso si la llamamos posteriormente solo como :
+// function hello();
+// Arrojara lo siguiente: Hello Chris Doe!
+// Ya que nosotros al escribir la función, establecimos que los atributos opcionales "name" y "lastName" tuvieran por defecto los valores predeterminados "Chris" y "Doe", respectivamente.
+
+// Ahora, si nosotros queremos ejecutar la función con diferentes valores para los atributos establecidos, bastaría hacerlo de la siguiente forma:
+
+hello('Ana', 'Castillo');
+
+// Lo que arrojaría: Hello Ana Castillo!
+
+// Funciones anónimas
+//Porque no tiene nombre. A menudo verá funciones anónimas cuando una función espera recibir otra función como parámetro. En este caso, el parámetro de función a menudo se pasa como una función anónima.
+
+// BreakPoints

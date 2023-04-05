@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            input {
+              font-size: 2em;
+              margin: 10px 1px 0;
+            }
+          </style>
+        <title>Document</title>
+    </head>
+    
+    <body>
+        <!-- <input id="textBox" type="text">
+        <div id="output"></div>
+        <script>
+            const textBox = document.querySelector("#textBox");
+            const output = document.querySelector("#output");
+    
+            textBox.addEventListener('keydown', (event) => output.textContent = `You pressed "${event.key}".`);
+
+        </script> -->
+
+        <!-- <script>
+            const x = 1;
+        
+            function a() {
+            const y = 2;
+            output(y);
+            }
+
+            function b() {
+            const z = 3;
+            output(z);
+            }
+        
+            function output(value) {
+              const para = document.createElement('p');
+              document.body.appendChild(para);
+              para.textContent = `Value: ${value}`;
+            }
+          </script> -->
+        <input class="numberInput" type="text">
+        <p></p>
+    
+        <!-- <script>
+            const input = document.querySelector('.numberInput');
+            const para = document.querySelector('p');
+
+            function squared(num) {
+            return num * num;
+            }
+
+            function cubed(num) {
+            return num * num * num;
+            }
+
+            function factorial(num) {
+            if (num < 0) return undefined;
+            if (num === 0) return 1;
+            let x = num - 1;
+            while (x > 1) {
+                num *= x;
+                x--;
+            }
+            return num;
+            }
+            
+            input.addEventListener("change", () => {
+            const num = parseFloat(input.value);
+            if (isNaN(num)) {
+                para.textContent = "You need to enter a number!";
+            } else {
+                para.textContent = `${num} squared is ${squared(num)}. `;
+                para.textContent += `${num} cubed is ${cubed(num)}. `;
+                para.textContent += `${num} factorial is ${factorial(num)}. `;
+            }
+            });
+
+        </script> -->
+
+        <script>
+            function showMessage(from, text = 'Esta pensando...') {
+                // text = 'Esta pensando...' Se estableció un valor predeterminado, considerando que no se proporcione un argumento posteriormente o se omita el mismo.
+
+                from = '*' + from + '*'; // Toma la variable "from" declarada fuera de la función y le agrega un par de "*" a los lados.
+
+                alert( from + ': ' + text );
+                }
+
+            let from = "Ann";
+
+            showMessage(from, "Hello"); // *Ann*: Hello
+            showMessage('Ann') // Solo el primer argumento se definió. *Ann*: Esta pensando...
+
+            // the value of "from" is the same, the function modified a local copy
+
+            alert( from ); // Ann
+        </script>
+    </body>
+</html>

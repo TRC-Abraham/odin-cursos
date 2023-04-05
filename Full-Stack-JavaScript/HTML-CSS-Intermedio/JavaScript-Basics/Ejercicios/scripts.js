@@ -170,3 +170,77 @@ const age = anoActual - anoNacimiento;
 const saludo2 = '¡Hola! Mi nombre es ' + fullName + ' y tengo ' + age + ' anos';
 
 console.log(saludo);
+
+//--------------------------------------------------
+function checkAge(age) {
+	if (age > 18) {
+	  return true;
+	} else {
+	  return confirm('Did parents allow you?');
+	}
+  }
+
+function checkAge(age){
+	return (age > 18) ? true : confirm('Did parents allow you?');
+}
+
+// -----------------------------------------
+
+let numeroA = Number(prompt('Ingresa el primer numero: '));
+let numeroB = Number(prompt('Ingresa el segundo numero: '));
+
+function min(numeroA, numeroB){
+	
+	if (numeroA < numeroB){
+		alert (numeroA + ' es menor a ' + numeroB);
+	}else {
+		alert (numeroA + ' es mayor a ' + numeroB);
+	}
+	return; 
+}
+
+//--------------------------------------------------
+
+// Assignment
+// Función 1 - Añadir
+function add7(numero) {
+	let numAdd;
+	numAdd = numero + 7;
+	console.log(numAdd);
+}
+// Función 2 - Multiplicar
+function multiply(mult1, mult2) {
+	let nummult;
+	nummult = mult1 * mult2;
+	console.log(nummult);
+}
+// Función 3 - Capitalizar
+function capitalize(palabra) {
+	let letraUno = palabra.charAt(0).toUpperCase();
+	let letraDos = palabra.slice(1).toLowerCase();
+	let palabraCap = letraUno + letraDos;
+	console.log(palabraCap);
+}
+// Función 4 - Ultima letra
+function lastLetter(palabra){
+	let lastLett = palabra.slice(-1);
+	console.log(lastLett);
+}
+
+//------------------------------------------------------
+
+let answer = parseInt(prompt('Ingresa un numero para hacer FizzBuzz: '));
+
+for (let i = 1; i <= answer; i++){
+	if (i % 3 === 0){
+		console.log(`${i} es Fizz`);
+	} else if (i % 5 === 0) {
+		console.log(`${i} es Buzz`);
+	} else if (i % 3 === 0 && i % 5 === 0){
+		console.log(`${i} es FizzBuzz`);
+	} else {
+		console.log(`${i} no es FizzBuzz =(`);
+	}
+}
+
+// Nota para que ${} funcione, debe de estar encerrada ente `` de lo contrario l valor no se mostrar correctamente.
