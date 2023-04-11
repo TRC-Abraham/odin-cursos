@@ -5,7 +5,7 @@
 //  - Arrojar resultado.
 // - Jugar una ronda.
 
-function playRound( par1, par2 ) {
+/* function playRound( par1, par2 ) {
     let playerChoice = (prompt( 'Escribe: Piedra, Papel o Tijeras' )).toUpperCase();
     const options = [ "PIEDRA", "PAPEL", "TIJERAS" ];
     let pcChoice = options[Math.floor(Math.random() * options.length)];
@@ -26,4 +26,4 @@ function playRound( par1, par2 ) {
         console.log(`El rival eligió: ` + pcChoice);
         console.log(`¡Perdiste!`);
     }
-}
+} */

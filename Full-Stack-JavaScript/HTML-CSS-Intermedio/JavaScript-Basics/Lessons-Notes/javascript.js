@@ -472,4 +472,145 @@ hello('Ana', 'Castillo');
 // Funciones anónimas
 //Porque no tiene nombre. A menudo verá funciones anónimas cuando una función espera recibir otra función como parámetro. En este caso, el parámetro de función a menudo se pasa como una función anónima.
 
-// BreakPoints
+// Nota: Hemos programado la condición de salida como i < cats.length, y no como i <= cats.length, porque los computadores cuentan desde 0, no 1 - inicializamos la variable i en 0, para llegar a i = 4 (el índice del último elemento del arreglo). cats.length responde 5, ya que existen 5 elementos en el arreglo, pero no queremos que i = 5, dado que respondería undefined para el último elemento (no existe un elemento en el arreglo con un índice 5). for the last item (there is no array item with an index of 5). Por ello, queremos llegar a 1 menos que cats.length (i <), que no es lo mismo que cats.length (i <=).
+
+// Nota: Un error común con la condición de salida es utilizar el comparador "igual a" (===) en vez de "menor o igual a" (<=). Si queremos que nuestro bucle se ejecute hasta que i = 5, la condición de salida debería ser i <= cats.length. Si la declaramos i === cats.length, el bucle no debería ejecutarse , porque i no es igual a 5 en la primera iteración del bucle, por lo que debería detenerse inmediatamente.
+
+// Cambiar la notación de la ultima iteración.
+for (var i = 0; i < cats.length; i++) {
+  if (i === cats.length - 1) {
+    info += 'and ' + cats[i] + '.';
+  } else {
+    info += cats[i] + ', ';
+  }
+}
+
+//---------------- Cuenta regresiva ----------------
+
+let output = document.querySelector('.output');
+output.innerHTML = '';
+
+
+for (let i = 10; i <= 10; i--) {
+	if (i === 10) {
+		const para = document.createElement('p');
+		output.appendChild(para);
+		para.textContent = `Cuenta regresiva en ${i}`;
+	}else if ( i === 0 ){
+		const para = document.createElement('p');
+		output.appendChild(para);
+		para.textContent = `¡Despegue!`;
+		break;
+	}else {
+		const para = document.createElement('p');
+		output.appendChild(para);
+		para.textContent = `${i}`;
+	}
+}
+
+//---------------- Lista de invitados -----------------
+
+var people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+
+var admitted = document.querySelector('.admitted');
+var refused = document.querySelector('.refused');
+admitted.textContent = 'Admit: ';
+refused.textContent = 'Refuse: '
+
+for ( var i = 0; i < people.length; i++ ){
+	if ( people[i] === 'Phil' || people[i] === 'Lola' ){
+		refused.textContent += people[i] + ', ';
+	}else {
+		admitted.textContent += people[i] + ', ';
+	}
+}
+
+// Nota: Aquí tomamos los arreglos resultantes de "for" y les quitamos los dos últimos caracteres (la coma y el espacio), para remplazarlos con un punto.
+refused.textContent = refused.textContent.slice(0,refused.textContent.length-2) + '.';
+admitted.textContent = admitted.textContent.slice(0,admitted.textContent.length-2) + '.';
+
+//---------------------- Bucles while -----------------------
+/* Ambos bucles tienen alert los mismos valores, ¿o no?
+
+La forma del prefijo ++i: */
+
+let i = 0;
+while (++i < 5) alert( i ); // 1, 2, 3, 4.
+// Finalmente, i = 4se incrementa a 5, la comparación
+// while(5 < 5)falla y el ciclo se detiene. Así que 5 no se muestra.
+
+
+/* La forma de posfijo i++ */
+
+let i = 0;
+while (i++ < 5) alert( i );// 1, 2, 3, 4, 5.
+
+/* Detengámonos en i = 4. La forma de prefijo ++ila incrementaría y usaría 5en la comparación. Pero aquí tenemos la forma sufijo i++. Entonces se incrementa ia 5, pero devuelve el valor anterior. Por lo tanto, la comparación es realmente while(4 < 5)verdadera y el control continúa hasta alert.
+
+El valor i = 5es el último, porque en el siguiente paso while(5 < 5)es falso. */
+
+//---------------------- Bucles for ------------------------
+
+// La forma de postfijo:
+
+for (let i = 0; i < 5; i++) alert( i );
+
+
+// La forma del prefijo:
+
+for (let i = 0; i < 5; ++i) alert( i );
+
+/* El incremento i++se separa de la verificación de condición (2). Esa es solo otra declaración.
+
+El valor devuelto por el incremento no se usa aquí, por lo que no hay diferencia entre i++y ++i. */
+
+//--------------------- Números pares ---------------------
+
+for ( let i = 2; i <= 10; i++ ){
+	if ( i % 2 == 0 ){
+		alert(i);
+	}
+}
+
+//-------------Reemplazar "for" con "while"----------------
+/* Vuelva a escribir el código cambiando el for bucle por un while sin alterar su comportamiento (la salida debe permanecer igual). */
+
+for (let i = 0; i < 3; i++) {
+  alert( `number ${i}!` );
+}
+
+let i = 0;
+while ( i < 3 ){
+	alert( `number ${i}!` );
+	i++;
+}
+
+
+//--------- Repita hasta que la entrada sea correcta --------
+
+/* Escriba un bucle que solicite un número mayor que 100. Si el visitante ingresa otro número, pídale que lo ingrese nuevamente.
+
+El ciclo debe solicitar un número hasta que el visitante ingrese un número mayor 100 o cancele la entrada/ingrese una línea vacía.
+
+Aquí podemos suponer que el visitante solo ingresa números. No es necesario implementar un manejo especial para una entrada no numérica en esta tarea. */
+
+let numMayor = prompt( 'Ingrese un numero mayor a 100', 0 );
+
+while ( numMayor <= 100 && numMayor ){
+	numMayor = prompt( 'Ingrese un numero mayor a 100', 0 );
+
+}
+
+// numMayor <= 100 -- Se repetirá el ciclo mientras el numero ingresado sea menor o igual a 100.
+// && numMayor -- Esto repite el ciclo si numMayor tiene valor null o se ingresa una cadena vacía.
+
+let n = 10;
+
+nextPrime:
+for ( let i = 2; i <= n; i++ ){
+	for (let j = 2; j < i; j++) { // look for a divisor..
+		if (i % j == 0) continue nextPrime; // not a prime, go next i
+	  }
+	
+	  alert( i ); // a prime
+}
