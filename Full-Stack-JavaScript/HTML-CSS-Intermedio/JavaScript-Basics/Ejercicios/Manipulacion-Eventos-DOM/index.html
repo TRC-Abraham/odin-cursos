@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="scripts.js" defer></script>
+        <title>Manipulación y eventos del DOM</title>
+    </head>
+    <body>
+        <body>
+            <h1>
+              THE TITLE OF YOUR WEBPAGE
+            </h1>
+            <div id="container">
+                <div class="content">
+                This is the glorious text-content!
+              </div>
+            </div>
+            <div class="botones-grupo-1">
+                <button id="btn" onclick="alert('Hello World')">
+                    Click Me
+                </button>
+
+                <!-- Esta solución es menos que ideal porque estamos saturando nuestro HTML con JavaScript. Además, solo podemos establecer una propiedad "onclick" por elemento DOM, por lo que no podemos ejecutar múltiples funciones separadas en respuesta a un evento de clic usando este método. -->
+
+                <button id="btn2">Clik Me</button>
+
+                <!-- Esto es un poco mejor. Hemos movido el JS del HTML a un archivo JS, pero aún tenemos el problema de que un elemento DOM solo puede tener 1 propiedad "onclick". -->
+
+                <button id="btn3">Click Me</button>
+
+                <!-- Ahora, mantenemos la separación de preocupaciones y también permitimos escuchar múltiples eventos si surge la necesidad. El método 3 es mucho más flexible y potente, aunque es un poco más complejo de configurar. -->
+
+
+               <!--  Tenga en cuenta que los 3 de estos métodos se pueden usar con funciones nombradas como esta: -->
+
+                <!-- the HTML file -->
+                <!-- METHOD 1 -->
+               <!--  <button onclick="alertFunction()">CLICK ME BABY</button>
+                // the JavaScript file
+                function alertFunction() {
+                  alert("YAY! YOU DID IT!");
+                }
+                
+                // METHOD 2
+                btn.onclick = alertFunction;
+                
+                // METHOD 3
+                btn.addEventListener('click', alertFunction); -->
+            </div>
+            <div class="botones-grupo-2">
+                <button class="buttonItem" id="1">Click Me</button>
+                <button class="buttonItem" id="2">Click Me</button>
+                <button class="buttonItem" id="3">Click Me</button>
+
+               <!--  Algunos eventos útiles incluyen:
+
+                click
+                dblclick
+                keydown
+                keyup -->
+
+            </div>
+          </body>
+    </body>
+</html>
