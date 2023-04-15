@@ -5,18 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
-        <script src="scripts.js"></script>
+        <script src="scripts.js" defer></script>
         <title>Rock, paper and scissors</title>
     </head>
     <body>
-        <!-- <div class="output" style="height: 410px;overflow: auto;">
-            
-        </div> -->
-
-        <div class="output" style="height: 100px;overflow: auto;">
-            <p class="admitted">Admit: </p>
-            <p class="refused">Refuse: </p>
-          </div>
-
+       
+        <div class="resultados">
+            <div id="resultadoPartida"></div>
+            <div id="resultadoJugador"></div>
+            <div id="resultadoPc"></div>
+        </div>
+        <div class="user-panel">
+            <button id="Piedra" class="player-option">
+                <img class="img-option" src="images/rock.svg" alt="Piedra">
+            </button>
+            <button id="Papel" class="player-option">
+                <img class="img-option" src="images/papper.svg" alt="Papel">
+            </button>
+            <button id="Tijeras" class="player-option">
+                <img class="img-option" src="images/sccisors.svg" alt="Tijeras">
+            </button>
+        </div>
     </body>
 </html>

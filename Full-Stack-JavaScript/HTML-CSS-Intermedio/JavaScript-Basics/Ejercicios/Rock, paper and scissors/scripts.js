@@ -5,25 +5,58 @@
 //  - Arrojar resultado.
 // - Jugar una ronda.
 
-/* function playRound( par1, par2 ) {
-    let playerChoice = (prompt( 'Escribe: Piedra, Papel o Tijeras' )).toUpperCase();
-    const options = [ "PIEDRA", "PAPEL", "TIJERAS" ];
-    let pcChoice = options[Math.floor(Math.random() * options.length)];
+const options = [ "PIEDRA", "PAPEL", "TIJERAS" ];
+const buttons = document.querySelectorAll( 'button' );
+let resultadoJugador = 0;
+let resultadoPc = 0;
+let playerChoice;
+let pcChoice;
 
-    if (playerChoice == pcChoice){
+function pcPlay(){
+    return options[Math.floor(Math.random() * options.length)];
+};
+
+buttons.forEach( button => button.addEventListener( 'click', () => {
+    const optionImg = button.querySelector('img');
+    playerChoice = optionImg.alt.toUpperCase();
+    playRound(playerChoice, pcChoice);
+}));
+
+
+function playRound( playerChoice, pcChoice ) {
+    
+    pcChoice = pcPlay();
+    playerChoice = playerChoice;
+
+    if (playerChoice == pcChoice){        
         console.log(`El jugador eligió: ` + playerChoice);
         console.log(`El rival eligió: ` + pcChoice);
-        console.log(`Empate`);
+        console.log(`Ronda empatada`);
+        console.log(`Jugador: ` + resultadoJugador + ` Pc: ` + resultadoPc)
     }else if (
-        playerChoice == "PIEDRA" && pcChoice == "TIJERAS",
-        playerChoice == "TIJERAS" && pcChoice == "PAPEL",
+        playerChoice == "PIEDRA" && pcChoice == "TIJERAS" ||
+        playerChoice == "TIJERAS" && pcChoice == "PAPEL" ||
         playerChoice == "PAPEL" && pcChoice == "PIEDRA" ){
-        console.log(`El jugador eligió: ` + playerChoice);
-        console.log(`El rival eligió: ` + pcChoice);
-        console.log(`¡Ganaste!`);
+            resultadoJugador = ++resultadoJugador;
+            console.log(`El jugador eligió: ` + playerChoice);
+            console.log(`El rival eligió: ` + pcChoice);
+            console.log(`¡Ronda ganada!`);
+            console.log(`Jugador: ` + resultadoJugador + ` Pc: ` + resultadoPc)
     }else {
+        resultadoPc = ++resultadoPc;
         console.log(`El jugador eligió: ` + playerChoice);
         console.log(`El rival eligió: ` + pcChoice);
-        console.log(`¡Perdiste!`);
+        console.log(`¡Ronda perdida!`);
+        console.log(`Jugador: ` + resultadoJugador + ` Pc: ` + resultadoPc)
     }
-} */
+};
+
+function guardarResultadoJugador(){
+    let cajaJugador = document.querySelector("#resultadoJugador");
+    cajaJugador.textContent = resultadoJugador;
+}
+
+function guardarResultadoPc(){
+    let cajaPc = document.querySelector("#resultadoPc");
+    cajaPc.textContent = resultadoPc;
+}
