@@ -31,6 +31,7 @@ function playRound( playerChoice, pcChoice ) {
 
     if (playerChoice == pcChoice){        
         mensaje = "Ronda Empatada";
+        empate();
         enviarMensaje();
 
         console.log(`El jugador eligió: ` + playerChoice);
@@ -45,6 +46,7 @@ function playRound( playerChoice, pcChoice ) {
             resultadoJugador = ++resultadoJugador;
             guardarResultadoJugador();
             mensaje = "¡Ronda ganada!";
+            puntoJugador();
             enviarMensaje();
 
             console.log(`El jugador eligió: ` + playerChoice);
@@ -55,6 +57,7 @@ function playRound( playerChoice, pcChoice ) {
         resultadoPc = ++resultadoPc;
         guardarResultadoPc();
         mensaje = "¡Ronda perdida!";
+        puntoPc();
         enviarMensaje();
 
         console.log(`El jugador eligió: ` + playerChoice);
@@ -86,4 +89,22 @@ function enviarMensaje(){
         let mensajeRonda = document.querySelector( "#mensaje" );
         mensajeRonda.textContent = mensaje;
     }
+}
+
+function puntoJugador(){
+    const background = document.querySelector( "#mensaje" );
+    background.classList.remove('puntoPc', 'empate');
+    background.classList.add('puntoJugador');
+}
+
+function puntoPc(){
+    const background = document.querySelector( "#mensaje" );
+    background.classList.remove('puntoJugador', 'empate');
+    background.classList.add('puntoPc');
+}
+
+function empate(){
+    const background = document.querySelector( "#mensaje" );
+    background.classList.remove('puntoPc', 'puntoJugador');
+    background.classList.add('empate');
 }
