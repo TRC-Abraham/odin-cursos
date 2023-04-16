@@ -1,4 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #0c192c;
+}
+
+html {
+    font-family: 'Source Code Pro', monospace;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.font-size-36 {
+    font-size: 36px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
 .img-option {
     width: 100px;
     height: 100px;
+    filter: invert(90%);
 }
+.resultadoPartida, .resultadoJugador,
+ .resultadoPc {
+    padding: 25px;
+}
+
+.resultados, .user-panel {
+    padding: 50px;
+    background-color: #4fc2dc34;
+    border-radius: 15px;
+}
+
+.fondo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.burbujas {
+    position: relative;
+    display: flex;
+}
+
+.burbujas .burbuja {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.burbujas span.burbuja:nth-child(odd){
+    background-color: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+.container {
+    margin-top: 5%;
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: [start]1fr [left]2fr [right]1fr [end];
+    grid-template-areas:
+        ". resultados ."
+        ". user-panel .";
+}
+
+.resultados {
+    grid-area: resultados;
+    display: grid;
+    grid-template-columns: [left-1]1fr [right-2]1fr;
+    grid-template-areas:
+        "resultadoPartida resultadoPartida"
+        "resultadoJugador resultadoPc";    
+}
+
+.resultadoPartida {
+    grid-area: resultadoPartida;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "top"
+        "bottom";
+        justify-items: center;
+}
+
+.resultadoJugador {
+    grid-area: resultadoJugador;
+    
+}
+
+.resultadoPc {
+    grid-area: resultadoPc;
+}
+
+.user-panel {
+    margin-top: 25px;
+    grid-area: user-panel;
+    display: flex;
+    justify-content: space-between;
+}
+
+#resultadoPartida {
+    grid-area: top;
+}
+
+.mensaje {
+    grid-area: bottom;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+}
+
+.btn:hover {
+    border-radius: 15px;
+    
+}
+
+.img-option:hover {
+    filter: invert(10%);
+} 

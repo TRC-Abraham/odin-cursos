@@ -11,6 +11,7 @@ let resultadoJugador = 0;
 let resultadoPc = 0;
 let playerChoice;
 let pcChoice;
+let mensaje;
 
 function pcPlay(){
     return options[Math.floor(Math.random() * options.length)];
@@ -29,21 +30,33 @@ function playRound( playerChoice, pcChoice ) {
     playerChoice = playerChoice;
 
     if (playerChoice == pcChoice){        
+        mensaje = "Ronda Empatada";
+        enviarMensaje();
+
         console.log(`El jugador eligió: ` + playerChoice);
         console.log(`El rival eligió: ` + pcChoice);
         console.log(`Ronda empatada`);
         console.log(`Jugador: ` + resultadoJugador + ` Pc: ` + resultadoPc)
+        
     }else if (
         playerChoice == "PIEDRA" && pcChoice == "TIJERAS" ||
         playerChoice == "TIJERAS" && pcChoice == "PAPEL" ||
         playerChoice == "PAPEL" && pcChoice == "PIEDRA" ){
             resultadoJugador = ++resultadoJugador;
+            guardarResultadoJugador();
+            mensaje = "¡Ronda ganada!";
+            enviarMensaje();
+
             console.log(`El jugador eligió: ` + playerChoice);
             console.log(`El rival eligió: ` + pcChoice);
             console.log(`¡Ronda ganada!`);
             console.log(`Jugador: ` + resultadoJugador + ` Pc: ` + resultadoPc)
     }else {
         resultadoPc = ++resultadoPc;
+        guardarResultadoPc();
+        mensaje = "¡Ronda perdida!";
+        enviarMensaje();
+
         console.log(`El jugador eligió: ` + playerChoice);
         console.log(`El rival eligió: ` + pcChoice);
         console.log(`¡Ronda perdida!`);
@@ -52,11 +65,25 @@ function playRound( playerChoice, pcChoice ) {
 };
 
 function guardarResultadoJugador(){
-    let cajaJugador = document.querySelector("#resultadoJugador");
+    let cajaJugador = document.querySelector( "#resultadoJugador" );
     cajaJugador.textContent = resultadoJugador;
 }
 
 function guardarResultadoPc(){
-    let cajaPc = document.querySelector("#resultadoPc");
+    let cajaPc = document.querySelector( "#resultadoPc" );
     cajaPc.textContent = resultadoPc;
+    
+}
+
+function enviarMensaje(){
+    if ( resultadoJugador === 5 ){
+        let mensajeRonda = document.querySelector( "#mensaje" );
+        mensajeRonda.textContent = "¡Eres el ganador!";
+    }else if ( resultadoPc === 5 ){
+        let mensajeRonda = document.querySelector( "#mensaje" );
+        mensajeRonda.textContent = "¡Fuiste Vencido!";
+    }else {
+        let mensajeRonda = document.querySelector( "#mensaje" );
+        mensajeRonda.textContent = mensaje;
+    }
 }
