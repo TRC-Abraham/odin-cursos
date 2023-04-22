@@ -614,3 +614,327 @@ for ( let i = 2; i <= n; i++ ){
 	
 	  alert( i ); // a prime
 }
+
+//------------------------------------------------------------
+// Objetos
+//------------------------------------------------------------
+
+//Se puede crear un objeto vacío ("gabinete vacío") usando una de dos sintaxis:
+
+let user = new Object(); // "object constructor" syntax
+let user = {};  // "object literal" syntax
+
+// Inmediatamente podemos poner algunas propiedades {...}como pares "clave: valor":
+
+// Literales y propiedades--------------------------------
+
+let user = {     // an object
+  name: "John",  // by key "name" store value "John"
+  age: 30        // by key "age" store value 30
+};
+
+//Una propiedad tiene una clave (también conocida como "nombre" o "identificador") antes de los dos puntos ":"y un valor a la derecha.
+
+//En el objeto user, hay dos propiedades:
+
+//La primera propiedad tiene el nombre "name"y el valor "John".
+//El segundo tiene el nombre "age"y el valor 30.
+
+// Se puede acceder a los valores de propiedad mediante la notación de puntos:
+
+// get property values of the object:
+alert( user.name ); // John
+alert( user.age ); // 30
+
+// El valor puede ser de cualquier tipo. Agreguemos uno booleano:
+
+user.isAdmin = true;
+
+user = {     // an object
+  name: "John",  // by key "name" store value "John"
+  age: 30,        // by key "age" store value 30
+  isAdmin: true
+};
+
+// Para eliminar una propiedad, podemos usar el delete operador:
+
+delete user.age;
+
+// También podemos usar nombres de propiedades de varias palabras, pero luego deben estar entre comillas:
+
+let user = {
+  name: "John",
+  age: 30,
+  "likes birds": true  // multi-word property name must be quoted
+};
+
+// La última propiedad de la lista puede terminar con una coma:
+
+let user = {
+  name: "John",
+  age: 30,
+}
+
+// Corchetes-------------------------------------------
+
+//Para propiedades de varias palabras, el punto de acceso no funciona:
+
+// this would give a syntax error
+user.likes birds = true
+
+// Hay una "notación de corchetes" alternativa que funciona con cualquier cadena:
+
+let user = {};
+
+// set
+user["likes birds"] = true;
+
+// get
+alert(user["likes birds"]); // true
+
+// delete
+delete user["likes birds"];
+
+// Los corchetes también proporcionan una forma de obtener el nombre de la propiedad como resultado de cualquier expresión
+
+let key = "likes birds";
+
+// same as user["likes birds"] = true;
+user[key] = true;
+
+// Ejemplo------------------------------
+
+let user = {
+  name: "John",
+  age: 30,
+};
+
+let key = prompt("What do you want to know about the user?", "name");
+
+// access by variable
+alert( user[key] ); // John (if enter "name")
+alert( user.key ) // undefined No funciona la notación de punto
+
+// Propiedades calculadas-----------------------
+
+// Podemos usar corchetes en un objeto literal, al crear un objeto. Eso se llama propiedades calculadas .
+
+//Por ejemplo:
+
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {
+  [fruit]: 5, // the name of the property is taken from the variable fruit
+};
+
+alert( bag.apple ); // 5 if fruit="apple"
+
+// El significado de una propiedad calculada es simple: [fruit]significa que el nombre de la propiedad debe tomarse de fruit.
+
+//Entonces, si un visitante ingresa "apple", bag se convertirá en {apple: 5}.
+
+//Esencialmente, eso funciona igual que:
+
+let fruit = prompt("Which fruit to buy?", "apple");
+let bag = {};
+
+// take property name from the fruit variable
+bag[fruit] = 5;
+alert( bag.apple ); // 5 if fruit="apple"
+
+// Podemos usar expresiones más complejas dentro de corchetes:
+
+let fruit = 'apple';
+let bag = {
+  [fruit + 'Computers']: 5 // bag.appleComputers = 5
+};
+
+// Taquigrafía del valor de la propiedad----------------------
+
+//En código real, a menudo usamos variables existentes como valores para nombres de propiedades.
+//Por ejemplo:
+
+function makeUser(name, age) {
+  return {
+    name: name,
+    age: age,
+    // ...other properties
+  };
+}
+
+let user = makeUser("John", 30);
+alert(user.name); // John
+
+// En lugar de name:name podemos simplemente escribir name, así:
+
+function makeUser(name, age) {
+  return {
+    name, // same as name: name
+    age,  // same as age: age
+    // ...
+  };
+}
+
+// Podemos usar propiedades normales y abreviaturas en el mismo objeto:
+
+let user = {
+  name,  // same as name:name
+  age: 30
+};
+
+// Limitaciones de nombres de propiedad-------------------------
+
+// Como ya sabemos, una variable no puede tener un nombre igual a una de las palabras reservadas del idioma como “for”, “let”, “return”, etc.
+
+// Pero para una propiedad de objeto, no existe tal restricción:
+
+// these properties are all right
+let obj = {
+  for: 1,
+  let: 2,
+  return: 3
+};
+
+alert( obj.for + obj.let + obj.return );  // 6
+
+// Otros tipos se convierten automáticamente en cadenas.
+
+Por ejemplo, un número 0se convierte en una cadena "0"cuando se usa como clave de propiedad:
+
+let obj = {
+  0: "test" // same as "0": "test"
+};
+
+// both alerts access the same property (the number 0 is converted to string "0")
+alert( obj["0"] ); // test
+alert( obj[0] ); // test (same property)
+
+// Prueba de existencia de propiedad, operador "in"------
+
+// La lectura de una propiedad que no existe simplemente devuelve undefined. Entonces podemos probar fácilmente si la propiedad existe:
+
+let user = {};
+
+alert( user.noSuchProperty === undefined ); // true significa: "no such property"
+
+// También hay un operador especial "in"para eso.
+
+//La sintaxis es:
+
+"key" in object
+
+//Por ejemplo:
+
+let user = { name: "John", age: 30 };
+
+alert( "age" in user ); // true, user.age existe
+alert( "blabla" in user ); // false, user.blab no existe
+
+// IMPORTANTE: Tenga en cuenta que en el lado izquierdo in debe haber un nombre de propiedad . Por lo general, es una cadena entrecomillada.
+//Si omitimos las comillas, eso significa que una variable debe contener el nombre real que se va a probar. Por ejemplo:
+
+let user = { age: 30 };
+
+let key = "age";
+alert( key in user ); // true, property "age" exists
+
+// La mayoría de las veces la comparación con undefined funciona bien. Pero hay un caso especial cuando falla, pero "in"funciona correctamente.
+
+//Es cuando existe una propiedad de objeto, pero almacena undefined:
+
+let obj = {
+  test: undefined
+};
+
+alert( obj.test ); // it's undefined, so - no such property?
+
+alert( "test" in obj ); // true, the property does exist!
+
+// El bucle "for..in" --------------------------------------
+//Para caminar sobre todas las teclas de un objeto, existe una forma especial de bucle: for..in. Esto es algo completamente diferente del for(;;)constructo que estudiamos antes.
+
+// La sintaxis:
+
+for (key in object) {
+  // executes the body for each key among object properties
+}
+
+// Por ejemplo, mostremos todas las propiedades de user:
+
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // keys
+  alert( key );  // name, age, isAdmin
+  // values for the keys
+  alert( user[key] ); // John, 30, true
+}
+
+// Podríamos usar otro nombre de variable aquí en lugar de key. Por ejemplo, "for (let prop in obj)"también es ampliamente utilizado.
+
+// Ordenado como un objeto -------------------------------
+
+// ¿Están ordenados los objetos? En otras palabras, si recorremos un objeto, ¿obtenemos todas las propiedades en el mismo orden en que se agregaron? ¿Podemos confiar en esto?
+
+// La respuesta corta es: "ordenadas de una manera especial": las propiedades enteras se ordenan, otras aparecen en orden de creación. Los detalles siguen.
+
+//Como ejemplo, consideremos un objeto con los códigos telefónicos:
+
+let codes = {
+  "49": "Germany",
+  "41": "Switzerland",
+  "44": "Great Britain",
+  // ..,
+  "1": "USA"
+};
+
+for (let code in codes) {
+  alert(code); // 1, 41, 44, 49
+}
+
+// El objeto se puede utilizar para sugerir una lista de opciones al usuario. Si estamos creando un sitio principalmente para una audiencia alemana, probablemente queramos 49ser los primeros.
+
+// Pero si ejecutamos el código, vemos una imagen totalmente diferente:
+
+// Estados Unidos (1) va primero luego Suiza (41) y así sucesivamente. Los códigos telefónicos van en orden ascendente porque son números enteros. Entonces vemos 1, 41, 44, 49.
+
+// Nota: ¿Propiedades enteras? ¿Qué es eso?
+// El término "propiedad de entero" aquí significa una cadena que se puede convertir de un entero a otro sin cambios.
+
+// Por lo tanto, "49"es un nombre de propiedad entero, porque cuando se transforma en un número entero y viceversa, sigue siendo el mismo. Pero "+49"y "1.2"no son:
+
+// Number(...) explicitly converts to a number
+// Math.trunc is a built-in function that removes the decimal part
+alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property
+alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
+alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
+
+// Por otro lado, si las claves no son enteras, entonces se enumeran en el orden de creación, por ejemplo:
+
+let user = {
+  name: "John",
+  surname: "Smith"
+};
+user.age = 25; // add one more
+
+// non-integer properties are listed in the creation order
+for (let prop in user) {
+  alert( prop ); // name, surname, age
+}
+
+// Entonces, para solucionar el problema con los códigos telefónicos, podemos "hacer trampa" haciendo que los códigos no sean enteros. Añadir un "+"signo más antes de cada código es suficiente.
+
+let codes = {
+  "+49": "Germany",
+  "+41": "Switzerland",
+  "+44": "Great Britain",
+  // ..,
+  "+1": "USA"
+};
+
+for (let code in codes) {
+  alert( +code ); // 49, 41, 44, 1
